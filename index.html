@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <title>Juego Adivina la Imagen</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sweetalert2.min.css">
+
 </head>
 <body>
+  <div class="config">
+    <label for="segundos">Temporizador:</label>
+    <input type="number" name="segundos" id="segundos" placeholder="Segundos por turno" value="30">
+  </div>
   <h1>🎮 Juego: Adivina la Imagen</h1>
   <h2 id="turno">Turno del Grupo 1</h2>
   <div class="imagen-container" id="imagen-container">
@@ -18,6 +24,8 @@
   <button onclick="siguienteGrupo()">➡️ Siguiente Grupo</button>
   <button onclick="terminarJuego()">❌ Terminar Juego</button>
   <div class="marcador" id="marcador"></div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="script.js"></script>
+
 </body>
 </html>

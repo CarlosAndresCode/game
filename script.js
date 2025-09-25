@@ -1,6 +1,6 @@
 //Ocultar en div imagen-container
 document.getElementById("imagen-container").style.display = "none";
-
+let temporizadorInput = document.getElementById("segundos");
 const grupos = 5;
 const imagenesPorGrupo = [
     ["imagenes/g1-1.jpg", "imagenes/g1-2.jpg", "imagenes/g1-3.jpg", "imagenes/g1-4.jpg", "imagenes/g1-5.jpg", "imagenes/g1-6.jpg"],
@@ -27,7 +27,12 @@ function actualizarMarcador() {
 function lanzarImagen() {
     document.getElementById("imagen-container").style.display = "block";
     if (usadas[turno].length >= 6) {
-        alert("El grupo ya usó sus 6 imágenes.");
+        Swal.fire({
+            icon: 'warning',
+            title: '⚠️ No hay más imágenes para este grupo!',
+            showConfirmButton: false,
+            timer: 1500
+        });
         return;
     }
 
@@ -39,7 +44,7 @@ function lanzarImagen() {
 
     usadas[turno].push(random);
 
-    iniciarTimer(30); // 30 segundos
+    iniciarTimer(temporizadorInput.value); // 30 segundos
 }
 
 function iniciarTimer(segundos) {
@@ -51,7 +56,12 @@ function iniciarTimer(segundos) {
         document.getElementById("timer").innerText = "⏳ " + tiempoRestante;
         if (tiempoRestante <= 0) {
             clearInterval(timer);
-            alert("⏰ Se acabó el tiempo!");
+            Swal.fire({
+                icon: 'info',
+                title: '⏰ Se acabó el tiempo!',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     }, 1000);
 }
@@ -81,8 +91,16 @@ function terminarJuego() {
             ganadores.push("Grupo " + (i + 1));
         }
     }
-    alert("🏆 El juego ha terminado! Ganador(es): " + ganadores.join(", ") + " con " + maxPuntos + " puntos.");
+    Swal.fire({
+        icon: 'success',
+        title: '🏆 El juego ha terminado!',
+        html: "Ganador(es): " + ganadores.join(", ") + " con " + maxPuntos + " puntos.",
+        showConfirmButton: true,
+        // timer: 1500
+    });
 }
+
+
 
 // Inicializar marcador
 actualizarMarcador();

@@ -36,10 +36,20 @@
      border-radius: 10px;
      box-shadow: 0 0 5px #aaa;
  }
-    .imagen-container {
-        display: flex;
-        justify-content: center;
-        width: 450px;
-        margin: 0 auto;
-        height: 300px;
-    }
+
+ .imagen-container {
+     display: flex;
+     justify-content: center;
+     width: 450px;
+     margin: 0 auto;
+     height: 300px;
+ }
+
+ .config {
+     margin-bottom: 10px;
+ }
+
+ .config input {
+     width: 35px;
+     padding: 5px;
+ }
