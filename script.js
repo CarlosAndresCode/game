@@ -71,5 +71,18 @@ function siguienteGrupo() {
     document.getElementById("timer").innerText = "⏳ 0";
 }
 
+function terminarJuego() {
+    document.getElementById("imagen-container").style.display = "none";
+    clearInterval(timer);
+    let maxPuntos = Math.max(...puntos);
+    let ganadores = [];
+    for (let i = 0; i < puntos.length; i++) {
+        if (puntos[i] === maxPuntos) {
+            ganadores.push("Grupo " + (i + 1));
+        }
+    }
+    alert("🏆 El juego ha terminado! Ganador(es): " + ganadores.join(", ") + " con " + maxPuntos + " puntos.");
+}
+
 // Inicializar marcador
 actualizarMarcador();
