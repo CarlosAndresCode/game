@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego Adivina la Imagen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎮 Juego: Adivina la Imagen</h1>
+  <h2 id="turno">Turno del Grupo 1</h2>
+  <div class="imagen-container" id="imagen-container">
+    <img id="imagen" src="" alt="Imagen aleatoria">
+  </div>
+
+  <p id="timer">⏳ 0</p>
+  <button onclick="lanzarImagen()">🎲 Lanzar Imagen</button>
+  <button onclick="punto()">✅ Adivinó</button>
+  <button onclick="siguienteGrupo()">➡️ Siguiente Grupo</button>
+  <div class="marcador" id="marcador"></div>
+  <script src="script.js"></script>
+</body>
+</html>
